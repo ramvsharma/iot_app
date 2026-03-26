@@ -4,8 +4,7 @@ from math import ceil
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 from rest_framework import status
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from user.jwt_utils import create_jwt_token
