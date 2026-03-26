@@ -1,7 +1,9 @@
 import jwt
 from datetime import datetime, timedelta, timezone
 
-SECRET_KEY = "your-very-secure-and-secret-key"
+from decouple import config
+
+SECRET_KEY = config("SECRET_KEY")
 ALGORITHM = "HS256"
 
 
