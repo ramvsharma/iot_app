@@ -1,0 +1,240 @@
+{
+  "info": {
+    "_postman_id": "69c42223-a609-7478-ac3b-4eea00000000",
+    "name": "Iot Application",
+    "description": "This collection covers the full lifecycle of an IoT Application backend. It includes authentication (login), user management (create, update, get, get all, profile), IoT data ingestion (create iot data), and real-time communication via WebSocket (ingest, subscribe). All protected endpoints use a JWT Token header for authorization.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "id": "69c4e8835d846b0ac1172b27",
+      "name": "ingest",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "",
+          "host": [""]
+        },
+        "description": "WebSocket request - configure manually after import"
+      },
+      "response": []
+    },
+    {
+      "id": "69c4f8d327d2be9a6cf9a87a",
+      "name": "subscribe",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "",
+          "host": [""]
+        },
+        "description": "WebSocket request - configure manually after import"
+      },
+      "response": []
+    },
+    {
+      "id": "69c4cb41e30e99a2052a0ef1",
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"123444\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/auth/login/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["auth", "login", ""]
+        },
+        "description": "POST"
+      },
+      "response": []
+    },
+    {
+      "id": "69c4d0aef34e3c2015c48195",
+      "name": "create user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiVTAwMDUiLCJleHAiOjE3NzQ1MDcwMzgsImlhdCI6MTc3NDUwNTIzOCwiaXNzIjoiaW90LWFwcGxpY2F0aW9uLXByb3ZpZGVyIn0.SMWZ_2JMTjZryvTo3lXcerfEAvUHP1Fncu_VDmEZQr0"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\":\"Raj Sharma\",\r\n    \"username\":\"raj2\",\r\n    \"password\":\"123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/users/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", ""]
+        },
+        "description": "POST"
+      },
+      "response": []
+    },
+    {
+      "id": "69c4df0336d2e17885f7566c",
+      "name": "create iot data",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiVTAwMDUiLCJleHAiOjE3NzQ1MjE2OTEsImlhdCI6MTc3NDUxOTg5MSwiaXNzIjoiaW90LWFwcGxpY2F0aW9uLXByb3ZpZGVyIn0.lXiJpboYZ8lpGaQdn9sdB8yRdUdwOH8QfnOjnBES7j4"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"user_id\":\"U0005\",\r\n    \"metric_1\":80.1,\r\n    \"metric_2\":100.1,\r\n    \"metric_3\":120.1,\r\n    \"timestamp\":\"2026-03-26 15:30:00+05:30\"\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/iot/data/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["iot", "data", ""]
+        },
+        "description": "POST"
+      },
+      "response": []
+    },
+    {
+      "id": "69c4d74036d2e17885f7561b",
+      "name": "update user",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiVTAwMDUiLCJleHAiOjE3NzQ1MDk4MTgsImlhdCI6MTc3NDUwODAxOCwiaXNzIjoiaW90LWFwcGxpY2F0aW9uLXByb3ZpZGVyIn0.YB5J_s6PLgG3nNyNcvR3HwvrTLo5aRLendrvPSAL6Js"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\":\"Raj Sharma\",\r\n    \"password\":\"123444\",\r\n    \"is_active\":false\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/users/U0005/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "U0005", ""]
+        },
+        "description": "PUT"
+      },
+      "response": []
+    },
+    {
+      "id": "69c4d9de6461e2c9ed5c25fb",
+      "name": "get user",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiVTAwMDUiLCJleHAiOjE3NzQ1MDk4MTgsImlhdCI6MTc3NDUwODAxOCwiaXNzIjoiaW90LWFwcGxpY2F0aW9uLXByb3ZpZGVyIn0.YB5J_s6PLgG3nNyNcvR3HwvrTLo5aRLendrvPSAL6Js"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/users/U0005/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "U0005", ""]
+        },
+        "description": "GET"
+      },
+      "response": []
+    },
+    {
+      "id": "69c4d3a6a6097478ac3b513e",
+      "name": "get all user",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiVTAwMDUiLCJleHAiOjE3NzQ1MDcwMzgsImlhdCI6MTc3NDUwNTIzOCwiaXNzIjoiaW90LWFwcGxpY2F0aW9uLXByb3ZpZGVyIn0.SMWZ_2JMTjZryvTo3lXcerfEAvUHP1Fncu_VDmEZQr0"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/users/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", ""]
+        },
+        "description": "GET"
+      },
+      "response": []
+    },
+    {
+      "id": "69c4cd53e30e99a2052a0efe",
+      "name": "profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiVTAwMDUiLCJleHAiOjE3NzQ1MDk4MTgsImlhdCI6MTc3NDUwODAxOCwiaXNzIjoiaW90LWFwcGxpY2F0aW9uLXByb3ZpZGVyIn0.YB5J_s6PLgG3nNyNcvR3HwvrTLo5aRLendrvPSAL6Js"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/profile/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["profile", ""]
+        },
+        "description": "GET"
+      },
+      "response": []
+    }
+  ]
+}
